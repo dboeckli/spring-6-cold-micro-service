@@ -9,12 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>ch.dboeckli.springframeworkguru.spring-6-icecold-micro-service</groupId>
-    <artifactId>spring-6-icecold-micro-service</artifactId>
+    <groupId>ch.dboeckli.springframeworkguru.spring-6-cold-micro-service</groupId>
+    <artifactId>spring-6-cold-micro-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
-    <description>spring-6-icecold-micro-service</description>
+    <description>spring-6-cold-micro-service</description>
 
     <scm>
         <connection>scm:git:https://github.com/${organization.name}/${project.artifactId}.git</connection>
