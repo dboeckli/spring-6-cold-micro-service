@@ -10,10 +10,10 @@ public class DrinkRequestProcessorImpl implements DrinkRequestProcessor {
     
     @Override
     public void processDrinkRequest(DrinkRequestEvent event) {
-        //log.info("### Processing Cold drink request...");
+        log.info("### Processing Cold drink request...");
         try {
             Thread.sleep(50);
-            //log.info("### Processing Cold drink done...");
+            log.info("### Processing Cold drink done...");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
