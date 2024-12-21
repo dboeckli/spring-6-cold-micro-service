@@ -15,7 +15,7 @@ public class DrinkRequestProcessorImpl implements DrinkRequestProcessor {
             Thread.sleep(50);
             log.info("### Processing Cold drink done...");
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("Error processing drink request", e);
         }
     }
 }
