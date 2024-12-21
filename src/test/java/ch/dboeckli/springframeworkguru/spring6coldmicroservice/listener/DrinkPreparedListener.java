@@ -16,7 +16,7 @@ public class DrinkPreparedListener {
 
     @KafkaListener(topics = KafkaConfig.DRINK_PREPARED_TOPIC, groupId = "cold-listener")
     public void listen(DrinkPreparedEvent event) {
-        log.info("### DrinkPreparedListener:  I'm listening...");
+        log.info("### DrinkPreparedListener:  I'm listening..." + event);
 
         iceColdMessageCounter.incrementAndGet();
     }
