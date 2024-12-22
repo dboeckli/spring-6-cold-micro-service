@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 public class Spring6ColdMicroServiceApplication {
     public static void main(String[] args) {
-        log.info("Starting Spring 6 Cold Microservice");
         SpringApplication.run(Spring6ColdMicroServiceApplication.class, args);
     }
 
