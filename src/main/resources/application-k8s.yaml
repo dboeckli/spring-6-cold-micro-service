@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: spring-6-cold-micro-service
+    name: spring-6-icecold-micro-service
 
   docker:
     compose:
@@ -14,15 +14,9 @@ spring:
         in-tests: true
 
   kafka:
-    #bootstrap-servers: localhost:9092
-    bootstrap-servers: "[::1]:29092"
-    admin:
-      properties:
-        #bootstrap-servers: localhost:9092
-        bootstrap-servers: "[::1]:29092"
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS}
     consumer:
-      #bootstrap-servers: localhost:9092
-      bootstrap-servers: "[::1]:29092"
+      bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS}
       group-id: sfg
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -30,10 +24,11 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
     producer:
-      #bootstrap-servers: localhost:9092
-      bootstrap-servers: "[::1]:29092"
+      bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS}
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    properties:
+      client.dns.lookup: use_all_dns_ips
 
 management:
   health:
