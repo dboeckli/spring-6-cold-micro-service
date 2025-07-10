@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @DirtiesContext
 @Slf4j
 @ActiveProfiles("it")
-class Spring6ColdMicroServiceApplicationTests {
+class Spring6ColdMicroServiceApplicationIT {
 
     @Autowired
     private ApplicationContext applicationContext;
