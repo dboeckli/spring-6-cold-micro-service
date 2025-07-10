@@ -1,9 +1,6 @@
-server:
-  port: 8081
-
 spring:
   application:
-    name: spring-6-cold-micro-service
+    name: spring-6-icecold-micro-service
 
   docker:
     compose:
@@ -11,9 +8,10 @@ spring:
       stop:
         command: down
       skip:
-        in-tests: true
+        in-tests: false
 
   kafka:
+
     #bootstrap-servers: localhost:9092
     bootstrap-servers: "[::1]:29092"
     admin:
@@ -100,4 +98,4 @@ logbook:
       - path: /**/public/**
       - path: /**/resources/**
       - path: /webjars/**
-        # Add more exclusions as needed
+        # Add more exclusions as needed    
