@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: spring-6-icecold-micro-service
+    name: spring-6-cold-micro-service
 
   docker:
     compose:
