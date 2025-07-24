@@ -1,6 +1,16 @@
 global:
   namespace: spring-6-cold-micro-service
 
+image:
+  repository: confluentinc/cp-kafka
+  tag: "7.9.2"
+  pullPolicy: IfNotPresent
+
+bitnamiKafkaImage:
+  repository: bitnami/kafka
+  tag: "3.9.0"
+  pullPolicy: IfNotPresent
+
 kafka:
   type: NodePort
 
