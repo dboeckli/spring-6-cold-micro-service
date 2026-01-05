@@ -50,7 +50,7 @@
         <merge-yaml-plugin.version>1.4</merge-yaml-plugin.version>
 
         <!-- our dependencies -->
-        <spring-6-rest-mvc-api.version>0.0.2</spring-6-rest-mvc-api.version>
+        <spring-6-rest-mvc-api.version>0.0.4</spring-6-rest-mvc-api.version>
 
         <!-- Sonar -->
         <sonar-maven-plugin.version>5.5.0.6356</sonar-maven-plugin.version>
