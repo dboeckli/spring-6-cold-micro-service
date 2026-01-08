@@ -18,7 +18,7 @@ import static org.awaitility.Awaitility.await;
 @SpringBootTest
 @Slf4j
 @ActiveProfiles("it")
-class KafkaConfigIT {
+class KafkaTopicsIT {
 
     @Autowired
     private KafkaAdmin kafkaAdmin;
@@ -32,15 +32,15 @@ class KafkaConfigIT {
 
                 assertThat(topics)
                     .extracting(TopicListing::name)
-                    .contains(KafkaConfig.DRINK_REQUEST_COLD_TOPIC);
+                    .contains(KafkaTopics.DRINK_REQUEST_COLD_TOPIC);
             });
 
             await().atMost(30, TimeUnit.SECONDS).untilAsserted(() -> {
-                ListConsumerGroupsResult consumerGroupsResult = adminClient.listConsumerGroups();
-                Collection<ConsumerGroupListing> groups = consumerGroupsResult.all().get(5, TimeUnit.SECONDS);
+                ListGroupsResult consumerGroupsResult = adminClient.listGroups();
+                Collection<GroupListing> groups = consumerGroupsResult.all().get(5, TimeUnit.SECONDS);
 
                 assertThat(groups)
-                    .extracting(ConsumerGroupListing::groupId)
+                    .extracting(GroupListing::groupId)
                     .contains(GROUP_ID);
             });
         }
