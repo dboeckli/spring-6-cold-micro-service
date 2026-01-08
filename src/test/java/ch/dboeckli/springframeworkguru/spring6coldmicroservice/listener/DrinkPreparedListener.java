@@ -1,6 +1,6 @@
 package ch.dboeckli.springframeworkguru.spring6coldmicroservice.listener;
 
-import ch.dboeckli.springframeworkguru.spring6coldmicroservice.config.KafkaConfig;
+import ch.dboeckli.springframeworkguru.spring6coldmicroservice.config.KafkaTopics;
 import ch.guru.springframework.spring6restmvcapi.events.DrinkPreparedEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
@@ -16,7 +16,7 @@ public class DrinkPreparedListener {
 
     public AtomicInteger messageCounter = new AtomicInteger(0);
 
-    @KafkaListener(topics = KafkaConfig.DRINK_PREPARED_TOPIC, groupId = "cold-listener")
+    @KafkaListener(topics = KafkaTopics.DRINK_PREPARED_TOPIC, groupId = "cold-listener")
     public void listen(DrinkPreparedEvent event) {
         log.info("### DrinkPreparedListener:  I'm listening..." + event);
 

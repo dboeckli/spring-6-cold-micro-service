@@ -1,6 +1,6 @@
 package ch.dboeckli.springframeworkguru.spring6coldmicroservice.listener;
 
-import ch.dboeckli.springframeworkguru.spring6coldmicroservice.config.KafkaConfig;
+import ch.dboeckli.springframeworkguru.spring6coldmicroservice.config.KafkaTopics;
 import ch.guru.springframework.spring6restmvcapi.dto.BeerDTO;
 import ch.guru.springframework.spring6restmvcapi.dto.BeerOrderLineDTO;
 import ch.guru.springframework.spring6restmvcapi.dto.BeerStyle;
@@ -18,7 +18,7 @@ import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@EmbeddedKafka(controlledShutdown = true, topics = {KafkaConfig.DRINK_REQUEST_COLD_TOPIC, KafkaConfig.DRINK_PREPARED_TOPIC}, partitions = 1)
+@EmbeddedKafka(controlledShutdown = true, topics = {KafkaTopics.DRINK_REQUEST_COLD_TOPIC, KafkaTopics.DRINK_PREPARED_TOPIC}, partitions = 1)
 @ActiveProfiles("test")
 public class DrinkRequestListenerTest {
 
