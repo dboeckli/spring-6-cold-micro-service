@@ -1,6 +1,6 @@
 package ch.dboeckli.springframeworkguru.spring6coldmicroservice.listener;
 
-import ch.dboeckli.springframeworkguru.spring6coldmicroservice.config.KafkaConfig;
+import ch.dboeckli.springframeworkguru.spring6coldmicroservice.config.KafkaTopics;
 import ch.dboeckli.springframeworkguru.spring6coldmicroservice.services.DrinkRequestProcessor;
 import ch.guru.springframework.spring6restmvcapi.events.DrinkPreparedEvent;
 import ch.guru.springframework.spring6restmvcapi.events.DrinkRequestEvent;
@@ -21,13 +21,13 @@ public class DrinkRequestListener {
 
     public static final String GROUP_ID = "ColdListener";
 
-    @KafkaListener(groupId = GROUP_ID, topics = KafkaConfig.DRINK_REQUEST_COLD_TOPIC)
+    @KafkaListener(groupId = GROUP_ID, topics = KafkaTopics.DRINK_REQUEST_COLD_TOPIC)
     public void listenDrinkRequest(DrinkRequestEvent event) {
         log.info("### I am listening - Cold drink request" + event);
 
         drinkRequestProcessor.processDrinkRequest(event);
         
-        kafkaTemplate.send(KafkaConfig.DRINK_PREPARED_TOPIC, DrinkPreparedEvent.builder()
+        kafkaTemplate.send(KafkaTopics.DRINK_PREPARED_TOPIC, DrinkPreparedEvent.builder()
             .beerOrderLineDTO(event.getBeerOrderLineDTO())
             .build());
 
