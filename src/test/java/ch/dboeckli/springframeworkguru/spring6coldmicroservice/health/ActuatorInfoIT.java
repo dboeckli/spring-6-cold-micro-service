@@ -27,8 +27,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ActuatorInfoIT {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
     @Autowired
     BuildProperties buildProperties;
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -74,23 +76,20 @@ class ActuatorInfoIT {
             .andExpect(jsonPath("$.details.nodes").isArray())
             .andExpect(jsonPath("$.details.nodes[0]").value("localhost:29092"))
             .andExpect(jsonPath("$.details.consumerGroups").isArray())
-            .andExpect(jsonPath("$.details.consumerGroups").value(containsInAnyOrder(
-                "ColdListener"
-            )))
+            .andExpect(jsonPath("$.details.consumerGroups").value(containsInAnyOrder("ColdListener")))
             .andExpect(jsonPath("$.details.topics").isArray())
-            .andExpect(jsonPath("$.details.topics").value(containsInAnyOrder(
-                "health-check",
-                "drink.request.cold"
-            )));
+            .andExpect(jsonPath("$.details.topics").value(containsInAnyOrder("health-check", "drink.request.cold")));
     }
 
     private String pretty(String body) {
         try {
             Object json = OBJECT_MAPPER.readValue(body, Object.class);
             return OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(json);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             // Falls kein valides JSON: unverändert zurückgeben
             return body;
         }
     }
+
 }
