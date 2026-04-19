@@ -7,15 +7,17 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class DrinkRequestProcessorImpl implements DrinkRequestProcessor {
-    
+
     @Override
     public void processDrinkRequest(DrinkRequestEvent event) {
         log.info("### Processing Cold drink request..." + event);
         try {
             Thread.sleep(50);
             log.info("### Processing Cold drink done...");
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e) {
             log.error("Error processing drink request", e);
         }
     }
+
 }

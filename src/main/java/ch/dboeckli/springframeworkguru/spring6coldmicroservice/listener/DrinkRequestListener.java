@@ -26,10 +26,9 @@ public class DrinkRequestListener {
         log.info("### I am listening - Cold drink request" + event);
 
         drinkRequestProcessor.processDrinkRequest(event);
-        
-        kafkaTemplate.send(KafkaTopics.DRINK_PREPARED_TOPIC, DrinkPreparedEvent.builder()
-            .beerOrderLineDTO(event.getBeerOrderLineDTO())
-            .build());
+
+        kafkaTemplate.send(KafkaTopics.DRINK_PREPARED_TOPIC,
+                DrinkPreparedEvent.builder().beerOrderLineDTO(event.getBeerOrderLineDTO()).build());
 
     }
 
