@@ -19,7 +19,7 @@ The project emphasizes DevOps best practices, including automated testing, healt
 
 Be aware that we are using a different namespace here (not default).
 
-To run maven filtering for destination target/helm
+To run maven filtering for destination target/helm.
 
 ```bash
 mvn clean install -DskipTests 
