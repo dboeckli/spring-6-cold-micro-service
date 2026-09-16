@@ -34,7 +34,7 @@ cd target/helm/repo
 unpack
 
 ```powershell
-$file = Get-ChildItem -Filter spring-6-cold-micro-service-v*.tgz | Select-Object -First 1
+$file = Get-ChildItem -Filter spring-6-cold-micro-service-chart-*.tgz | Select-Object -First 1
 tar -xvf $file.Name
 ```
 
